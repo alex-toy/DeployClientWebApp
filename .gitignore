@@ -1,0 +1,5 @@
+/commands/CosmosDb/connectionstrings.json
+/commands/CosmosDb/keys.json
+.venv
+/starter/Pipfile
+/starter/Pipfile.lock

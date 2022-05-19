@@ -4,6 +4,23 @@
 
 
 ################################################################
+"Cosmos database :"
+
+$Global:CDBName = "alexeicosmos"
+$Global:CDBServerVersion = "4.0"
+# Needs to be lower case
+$Global:CDBDatabaseAccount = "alexeidatabaseaccount"
+#GlobalDocumentDB, MongoDB, Parse
+$Global:CDBKind = "MongoDB"
+$Global:CDBMaxThroughput = 4000
+$Global:CDBThroughput = 400
+$Global:CDBCollectionName = 'myfirstcollection'
+$Global:CDBDefaultConsistencyLevel = 'Eventual'
+$Global:CDBenableAutomaticFailover = 'false'
+
+
+
+################################################################
 "CREATE A COSMOS DATABASE ACCOUNT :"
 
 az cosmosdb create `
@@ -16,54 +33,6 @@ az cosmosdb create `
     # --subscription $Subscription
 
 
-
-################################################################
-"CREATE A COSMOS DATABASE :"
-
-# az cosmosdb mongodb database create `
-#     --account-name $CDBDatabaseAccount `
-#     --name $CDBName `
-#     --resource-group $RGName `
-#     --throughput $CDBThroughput
-
-
-################################################################
-"GET KEYS : "
-
-# Get IP address
-# $file = '.\commands\CosmosDb\keys.json'
-# az cosmosdb keys list `
-#     --name $CDBDatabaseAccount `
-#     --resource-group $RGName | Out-File $file
-
-# $json = Get-Content $file -Raw | ConvertFrom-Json 
-
-# $Global:CDBKeys = $json.primaryMasterKey
-# "CosmosDB keys : " + $CDBKeys
-
-
-
-################################################################
-"GET CONNECTION STRINGS :  "
-
-# Get IP address
-# $file = '.\commands\CosmosDb\connectionstrings.json'
-# az cosmosdb keys list `
-#     --name $CDBDatabaseAccount `
-#     --resource-group $RGName `
-#     --type connection-strings | Out-File $file
-
-# $json = Get-Content $file -Raw | ConvertFrom-Json 
-
-# $Global:CDBConnectionStrings = $json.connectionStrings[0].connectionString
-# "CosmosDB Connection strings : " + $CDBConnectionStrings
-
-
-#######################################################################
-# Next step :
-
-$script = "commands\CosmosDb\CosmosDb_proceed.ps1"
-.$script
 
 
 
